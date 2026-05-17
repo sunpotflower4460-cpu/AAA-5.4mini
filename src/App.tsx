@@ -1,8 +1,9 @@
-import { useEffect, useMemo, useRef, useState } from 'react';
-    import { AppShell } from './components/AppShell';
-    import { EmptyState } from './components/EmptyState';
-    import { NoteEditor } from './components/NoteEditor';
-    import { NotesList } from './components/NotesList';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { AppShell } from './components/AppShell';
+import { ConfirmDialog } from './components/ConfirmDialog';
+import { EmptyState } from './components/EmptyState';
+import { NoteEditor } from './components/NoteEditor';
+import { NotesList } from './components/NotesList';
     import { copy } from './lib/i18n';
     import { loadNotes, saveNotes } from './lib/storage';
     import type { Note } from './types/note';
@@ -44,6 +45,7 @@ import { useEffect, useMemo, useRef, useState } from 'react';
       const [query, setQuery] = useState('');
       const [viewMode, setViewMode] = useState<ViewMode>('list');
       const [saveStatus, setSaveStatus] = useState<SaveStatus>('idle');
+      const [deleteDialogOpen, setDeleteDialogOpen] = useState(false);
       const saveTimer = useRef<number | null>(null);
       const statusTimer = useRef<number | null>(null);
       const hydrated = useRef(false);
@@ -65,7 +67,7 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 
       const hasNotes = notes.length > 0;
 
-      const persistNotes = (nextNotes: Note[]) => {
+      const persistNotes = useCallback((nextNotes: Note[]) => {
         if (saveTimer.current) {
           window.clearTimeout(saveTimer.current);
         }
@@ -78,10 +80,10 @@ import { useEffect, useMemo, useRef, useState } from 'react';
           saveNotes(nextNotes);
           setSaveStatus('saved');
           statusTimer.current = window.setTimeout(() => {
-            setSaveStatus('idle');
+          setSaveStatus('idle');
           }, 1800);
         }, 450);
-      };
+      }, []);
 
       useEffect(() => {
         if (!hydrated.current) {
@@ -98,7 +100,7 @@ import { useEffect, useMemo, useRef, useState } from 'react';
             window.clearTimeout(statusTimer.current);
           }
         };
-      }, [notes]);
+      }, [notes, persistNotes]);
 
       const openNote = (id: string) => {
         setSelectedId(id);
@@ -132,13 +134,19 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 
       const deleteSelectedNote = () => {
         if (!selectedNote) return;
-        const confirmed = window.confirm(`${copy.deleteConfirmTitle}
-${copy.deleteConfirmSubtitle}`);
-        if (!confirmed) return;
+        setDeleteDialogOpen(true);
+      };
 
+      const confirmDelete = () => {
+        if (!selectedNote) return;
         setNotes((current) => current.filter((note) => note.id !== selectedNote.id));
         setSelectedId(null);
         setViewMode('list');
+        setDeleteDialogOpen(false);
+      };
+
+      const cancelDelete = () => {
+        setDeleteDialogOpen(false);
       };
 
       useEffect(() => {
@@ -176,6 +184,15 @@ ${copy.deleteConfirmSubtitle}`);
               onDelete={deleteSelectedNote}
             />
           ) : null}
+          <ConfirmDialog
+            open={deleteDialogOpen}
+            title={copy.deleteConfirmTitle}
+            subtitle={copy.deleteConfirmSubtitle}
+            confirmLabel={copy.delete}
+            cancelLabel={copy.back}
+            onConfirm={confirmDelete}
+            onCancel={cancelDelete}
+          />
         </AppShell>
       );
     }

@@ -11,13 +11,6 @@ import type { Note } from '../types/note';
 
     export function NoteEditor({ note, saveStatus, onBack, onChange, onDelete }: NoteEditorProps) {
       const isFavorite = note.isFavorite;
-      const statusText =
-        saveStatus === 'saving'
-          ? copy.saving
-          : saveStatus === 'saved'
-            ? `${copy.saved}
-${copy.savedEn}`
-            : '';
 
       return (
         <section className="flex flex-1 flex-col pt-6">
@@ -55,7 +48,16 @@ ${copy.savedEn}`
               </div>
             </div>
             <div className="mt-3 min-h-5 text-[12px] tracking-[0.12em] text-[color:var(--color-ink-muted)] transition-opacity duration-300">
-              {statusText ? <span className="whitespace-pre-line">{statusText}</span> : <span aria-hidden="true">&nbsp;</span>}
+              {saveStatus === 'saving' ? (
+                <span>{copy.saving}</span>
+              ) : saveStatus === 'saved' ? (
+                <span className="space-y-0.5">
+                  <span className="block">{copy.saved}</span>
+                  <span className="block text-[11px] tracking-[0.16em]">{copy.savedEn}</span>
+                </span>
+              ) : (
+                <span aria-hidden="true">&nbsp;</span>
+              )}
             </div>
           </div>
 

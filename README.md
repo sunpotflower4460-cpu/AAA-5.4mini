@@ -1,13 +1,13 @@
 # 残心 / Zanshin
 
-> 書いたあとにも、心がそこに残るメモ帳。  
+> 書いたあとにも、心がそこに残るメモ帖。  
 > A note-taking app where the heart lingers, even after the writing ends.
 
 ---
 
 ## アプリ概要
 
-「残心」は、和の美意識・間・余白・静けさを大切にした、iPhone-firstのWebメモアプリです。まずはローカル保存のMVPとして、静かに書けて、静かに残る最小体験を整えます。
+「残心」は、和の美意識・間・余白・静けさを大切にした、iPhone-firstのWebメモ帖です。まずはローカル保存のMVPとして、静かに書けて、静かに残る最小体験を整えます。
 
 ---
 

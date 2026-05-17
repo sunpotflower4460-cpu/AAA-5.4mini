@@ -40,8 +40,8 @@ export function NotesList({ notes, query, onQueryChange, onCreateNote, onSelectN
       {notes.length > 0 ? (
         <section className="space-y-4">
           <div className="flex items-center justify-between text-[12px] uppercase tracking-[0.22em] text-[color:var(--color-ink-muted)]">
-            <span>Notes</span>
-            <span>{isSearching ? `${notes.length}` : `${notes.length}`}</span>
+            <span>{isSearching ? '絞り込み' : 'Notes'}</span>
+            <span>{notes.length}</span>
           </div>
           <div className="space-y-4">
             {notes.map((note) => (

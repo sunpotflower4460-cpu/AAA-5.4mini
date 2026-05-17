@@ -1,7 +1,7 @@
 export const copy = {
   appName: '残心',
   appSubtitle: 'Zanshin Notes',
-  tagline: '書いたあとにも、心がそこに残るメモ帳。',
+      tagline: '書いたあとにも、心がそこに残るメモ帖。',
   taglineEn: 'Write with stillness.',
   emptyTitle: 'まだ、言葉は置かれていません。',
   emptySubtitle: 'No words have settled yet.',
