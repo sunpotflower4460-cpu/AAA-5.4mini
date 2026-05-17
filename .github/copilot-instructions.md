@@ -4,7 +4,7 @@
 
 This project is called **"Zanshin / 残心"**.
 
-It is a calm, Japanese-inspired iOS-first note-taking app.
+It is a calm, Japanese-inspired, iPhone-first note-taking app.
 
 The goal is **not** to build a feature-heavy notes app.  
 The goal is to make writing feel **quiet, spacious, and intentional**.
@@ -21,6 +21,7 @@ The goal is to make writing feel **quiet, spacious, and intentional**.
 - **Use Japanese aesthetics carefully, not excessively.** Motifs carry meaning, not decoration.
 - **Do not turn the app into a decorative theme park.** Aim for "quiet modern Japanese", not "traditional theme park".
 - **Prioritize writing experience over feature count.** A calm editor beats ten half-baked tools.
+- **Keep the product web-first and Capacitor-ready.** Build the MVP as a web app that can move to iOS later without rework.
 
 ---
 
@@ -40,11 +41,12 @@ The goal is to make writing feel **quiet, spacious, and intentional**.
 - ✅ Create `docs/audit-phase-2.md`
 - ❌ Do not deploy
 - ❌ Do not overbuild
+- ❌ Do not add AI, login, sync, or paid features
 
 ### Phase 3
 
 - ✅ Build the MVP (React + TypeScript + Vite + Tailwind)
-- ✅ Deploy only **after** MVP is complete, if requested
+- ✅ Deploy only to Cloudflare Pages **after** MVP is complete, if requested
 - ❌ Do not deploy mid-implementation
 
 ---
@@ -60,6 +62,7 @@ When implementation begins:
 - Use **responsive iPhone-first layout** with safe-area support
 - Prefer **localStorage at MVP stage**, structured for easy migration to IndexedDB
 - **Avoid adding libraries unless necessary** — prefer built-in browser APIs
+- Keep the MVP scope limited to notes, search, favorites, and local storage
 
 ---
 

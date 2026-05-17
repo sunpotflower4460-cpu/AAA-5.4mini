@@ -11,6 +11,8 @@
 このアプリでは、メモを書くことを単なる入力作業ではなく、  
 **心の一部を静かに置く行為**として扱います。
 
+海外に伝えるときは、Japanese minimalism / Zen-inspired writing / Wabi-sabi / Mindful notes / Calm journaling / Write with stillness / Saved in stillness のような言葉で補足し、芯はあくまで「書いたあとにも、心がそこに残るメモ帳」に置く。
+
 ---
 
 ## 中核思想
