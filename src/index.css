@@ -1,0 +1,59 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-washi: #f7f1e5;
+  --color-paper: #fbf8f1;
+  --color-sumi: #1f1b18;
+  --color-ink-muted: #5f5750;
+  --color-gold: #c9a646;
+  --color-indigo: #243b53;
+  --color-vermilion: #b14a36;
+  --color-line: rgba(31, 27, 24, 0.12);
+  --color-shadow: rgba(31, 27, 24, 0.08);
+  --font-serif: 'Hiragino Mincho ProN', 'Yu Mincho', 'Noto Serif JP', 'Noto Serif', serif;
+  --font-sans: 'Hiragino Sans', 'Noto Sans JP', system-ui, sans-serif;
+}
+
+:root {
+  color-scheme: light;
+  background: var(--color-washi);
+  font-family: var(--font-sans);
+  line-height: 1.618;
+  font-weight: 400;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  min-height: 100%;
+  background: var(--color-washi);
+}
+
+body {
+  margin: 0;
+  min-height: 100dvh;
+  background: var(--color-washi);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: color-mix(in srgb, var(--color-ink-muted) 80%, transparent);
+}
+
+::selection {
+  background: color-mix(in srgb, var(--color-gold) 32%, transparent);
+  color: var(--color-sumi);
+}
