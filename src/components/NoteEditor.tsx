@@ -9,21 +9,21 @@ import type { Note } from '../types/note';
       onDelete: () => void;
     };
 
-    export function NoteEditor({ note, saveStatus, onBack, onChange, onDelete }: NoteEditorProps) {
-      const isFavorite = note.isFavorite;
+export function NoteEditor({ note, saveStatus, onBack, onChange, onDelete }: NoteEditorProps) {
+  const isFavorite = note.isFavorite;
 
-      return (
-        <section className="flex flex-1 flex-col pt-6">
-          <div className="sticky top-0 z-10 -mx-5 mb-5 border-b border-[color:var(--color-line)] bg-[color:var(--color-washi)]/95 px-5 pb-4 pt-[max(1rem,env(safe-area-inset-top))] backdrop-blur-sm">
-            <div className="flex items-center justify-between gap-3">
-              <button
-                type="button"
-                aria-label={copy.back}
-                onClick={onBack}
-                className="inline-flex h-11 items-center justify-center rounded-full border border-[color:var(--color-line)] px-4 text-[14px] text-[color:var(--color-sumi)] transition duration-300 hover:bg-[color:var(--color-paper)]"
-              >
-                ← {copy.back}
-              </button>
+  return (
+    <section className="flex flex-1 flex-col pt-5">
+      <div className="sticky top-0 z-10 -mx-4 mb-5 border-b border-[color:var(--color-line)] bg-[color:var(--color-washi)]/95 px-4 pb-4 pt-[max(0.9rem,env(safe-area-inset-top))] backdrop-blur-sm sm:-mx-5 sm:px-5">
+        <div className="flex items-center justify-between gap-3">
+          <button
+            type="button"
+            aria-label={copy.back}
+            onClick={onBack}
+            className="inline-flex h-11 items-center justify-center rounded-full border border-[color:var(--color-line)] px-4 text-[14px] text-[color:var(--color-sumi)] transition duration-300 hover:bg-[color:var(--color-paper)]"
+          >
+            ← {copy.back}
+          </button>
               <div className="flex items-center gap-2">
                 <button
                   type="button"
@@ -59,23 +59,23 @@ import type { Note } from '../types/note';
                 <span aria-hidden="true">&nbsp;</span>
               )}
             </div>
-          </div>
+      </div>
 
-          <div className="flex flex-1 flex-col gap-5 pb-[calc(env(safe-area-inset-bottom)+2rem)]">
-            <input
-              aria-label="Title"
-              className="w-full bg-transparent font-serif text-[24px] leading-tight text-[color:var(--color-sumi)] outline-none placeholder:text-[color:var(--color-ink-muted)]"
-              type="text"
-              value={note.title}
-              placeholder={copy.titlePlaceholder}
-              onChange={(event) => onChange({ title: event.target.value })}
-            />
-            <textarea
-              aria-label="Body"
-              className="min-h-[58dvh] w-full flex-1 resize-none bg-transparent text-[16px] leading-[1.618] text-[color:var(--color-sumi)] outline-none placeholder:text-[color:var(--color-ink-muted)]"
-              value={note.body}
-              placeholder={copy.bodyPlaceholder}
-              onChange={(event) => onChange({ body: event.target.value })}
+      <div className="flex flex-1 flex-col gap-5 pb-[calc(env(safe-area-inset-bottom)+2rem)]">
+        <input
+          aria-label="Title"
+          className="w-full bg-transparent font-serif text-[clamp(22px,5vw,30px)] leading-tight text-[color:var(--color-sumi)] outline-none placeholder:text-[color:var(--color-ink-muted)]"
+          type="text"
+          value={note.title}
+          placeholder={copy.titlePlaceholder}
+          onChange={(event) => onChange({ title: event.target.value })}
+        />
+        <textarea
+          aria-label="Body"
+          className="min-h-[56dvh] w-full flex-1 resize-none bg-transparent text-[16px] leading-[1.72] text-[color:var(--color-sumi)] outline-none placeholder:text-[color:var(--color-ink-muted)]"
+          value={note.body}
+          placeholder={copy.bodyPlaceholder}
+          onChange={(event) => onChange({ body: event.target.value })}
             />
           </div>
         </section>

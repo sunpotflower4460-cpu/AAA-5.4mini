@@ -21,8 +21,8 @@ export function NotesList({ notes, query, onQueryChange, onCreateNote, onSelectN
   const actionLabel = hasNotes ? copy.newNote : copy.emptyAction;
 
   return (
-    <div className="space-y-8 pb-28 pt-6">
-      <header className="space-y-5">
+    <div className="space-y-7 pb-32 pt-5">
+      <header className="space-y-4">
         <div className="flex items-center gap-4">
           <ZanshinMark />
           <div>
@@ -55,6 +55,7 @@ export function NotesList({ notes, query, onQueryChange, onCreateNote, onSelectN
           subtitle={emptySubtitle}
           actionLabel={actionLabel}
           onAction={onCreateNote}
+          compact={isSearching}
         />
       )}
 
@@ -63,7 +64,7 @@ export function NotesList({ notes, query, onQueryChange, onCreateNote, onSelectN
           type="button"
           aria-label={copy.newNote}
           onClick={onCreateNote}
-          className="fixed bottom-[calc(env(safe-area-inset-bottom)+1.25rem)] right-[max(1rem,env(safe-area-inset-right))] z-20 flex h-[55px] w-[55px] items-center justify-center rounded-full bg-[color:var(--color-sumi)] text-[22px] text-[color:var(--color-paper)] shadow-[0_18px_38px_var(--color-shadow)] transition duration-300 hover:scale-[1.03] active:scale-[0.98]"
+          className="fixed bottom-[calc(env(safe-area-inset-bottom)+1rem)] right-[max(1rem,env(safe-area-inset-right))] z-20 flex h-14 w-14 items-center justify-center rounded-full bg-[color:var(--color-sumi)] text-[22px] text-[color:var(--color-paper)] shadow-[0_18px_38px_var(--color-shadow)] transition duration-300 hover:scale-[1.03] active:scale-[0.98]"
         >
           <span aria-hidden="true">＋</span>
         </button>

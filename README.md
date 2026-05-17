@@ -7,7 +7,7 @@
 
 ## アプリ概要
 
-「残心」は、和の美意識・間・余白・静けさを大切にした、iPhone-firstのWebメモ帖です。まずはローカル保存のMVPとして、静かに書けて、静かに残る最小体験を整えます。
+「残心」は、和の美意識・間・余白・静けさを大切にした、iPhone-firstのWebメモ帖です。Phase 4 までの最終調整を完了し、公開前の静かなMVPとして整えています。
 
 ---
 
@@ -57,14 +57,33 @@ npm run build
 
 ---
 
-## Cloudflare Pages方針
+## Cloudflare Pages設定
 
-Phase 3のMVP完成後のみ、必要に応じてCloudflare Pagesの設定を行います。
+```txt
+Build command: npm run build
+Build output directory: dist
+```
 
-- Build command: `npm run build`
-- Build output directory: `dist`
+環境変数は基本不要です。Cloudflare Pages に手動接続する場合は、上記設定で十分です。
 
-Phase 3の途中ではデプロイしません。
+---
+
+## Phase 4 最終調整
+
+Phase 4 では以下を調整しました。
+
+- 基本機能のデバッグ確認
+- iPhone幅を中心に余白・文字サイズ・ボタン配置を微調整
+- 自動保存の安定性を改善
+- 公開前の最終ビルド確認
+
+---
+
+## 備考
+
+- localStorage に保存されたメモが起動時に復元されます
+- 不正なJSONが保存されていても、読み込みで落ちない設計です
+- Cloudflare Pages へ接続済みの場合は、`npm run build` 後に `dist` を公開してください
 
 ---
 
