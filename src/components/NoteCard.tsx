@@ -21,7 +21,7 @@ export function NoteCard({ note, onSelect }: NoteCardProps) {
       type="button"
       aria-label={title}
       onClick={onSelect}
-      className="group w-full rounded-3xl border border-[color:var(--color-line)] bg-[color:var(--color-paper)] px-5 py-5 text-left shadow-[0_10px_28px_var(--color-shadow)] transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_14px_34px_var(--color-shadow)] active:scale-[0.995]"
+      className="group w-full rounded-[1.85rem] border border-[color:var(--color-line)] bg-[color:var(--color-paper)] px-5 py-5 text-left shadow-[0_10px_28px_var(--color-shadow)] transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_14px_34px_var(--color-shadow)] active:scale-[0.995]"
     >
       <div className="flex items-start gap-4">
         <div className="mt-1 h-16 w-px bg-[color:var(--color-sumi)]/20" aria-hidden="true" />

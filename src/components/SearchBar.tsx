@@ -15,10 +15,10 @@ const inputClassName = [
 
 const containerClassName = [
   'flex',
-  'h-[52px]',
+  'h-[54px]',
   'items-center',
   'gap-3',
-  'rounded-2xl',
+  'rounded-[1.4rem]',
   'border',
   'border-[color:var(--color-line)]',
   'bg-[color:var(--color-paper)]',
