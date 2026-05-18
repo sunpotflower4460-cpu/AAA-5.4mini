@@ -11,8 +11,14 @@ type NoteEditorProps = {
 
 export function NoteEditor({ note, saveStatus, onBack, onChange, onDelete }: NoteEditorProps) {
   const isFavorite = note.isFavorite;
-  const saveMessage = saveStatus === 'saving' ? copy.saving : saveStatus === 'saved' ? copy.saved : '\u00A0';
-  const saveMessageEn = saveStatus === 'saved' ? copy.savedEn : '\u00A0';
+  const getSaveMessage = (status: NoteEditorProps['saveStatus']) => {
+    if (status === 'saving') return copy.saving;
+    if (status === 'saved') return copy.saved;
+    return '\u00A0';
+  };
+  const getSaveMessageEn = (status: NoteEditorProps['saveStatus']) => (status === 'saved' ? copy.savedEn : '\u00A0');
+  const saveMessage = getSaveMessage(saveStatus);
+  const saveMessageEn = getSaveMessageEn(saveStatus);
 
   return (
     <section className="flex flex-1 flex-col pt-4">
