@@ -11,6 +11,8 @@ type NoteEditorProps = {
 
 export function NoteEditor({ note, saveStatus, onBack, onChange, onDelete }: NoteEditorProps) {
   const isFavorite = note.isFavorite;
+  const saveMessage = saveStatus === 'saving' ? copy.saving : saveStatus === 'saved' ? copy.saved : '\u00A0';
+  const saveMessageEn = saveStatus === 'saved' ? copy.savedEn : '\u00A0';
 
   return (
     <section className="flex flex-1 flex-col pt-4">
@@ -50,12 +52,8 @@ export function NoteEditor({ note, saveStatus, onBack, onChange, onDelete }: Not
         </div>
 
         <div className="mx-auto mt-3 flex w-full max-w-[680px] items-center justify-between gap-3 text-[12px] tracking-[0.14em] text-[color:var(--color-ink-muted)]">
-          <span>
-            {saveStatus === 'saving' ? copy.saving : saveStatus === 'saved' ? copy.saved : '\u00A0'}
-          </span>
-          <span className="text-[11px] uppercase tracking-[0.18em] text-[color:var(--color-ink-muted)]/70">
-            {saveStatus === 'saved' ? copy.savedEn : '\u00A0'}
-          </span>
+          <span>{saveMessage}</span>
+          <span className="text-[11px] uppercase tracking-[0.18em] text-[color:var(--color-ink-muted)]/70">{saveMessageEn}</span>
         </div>
       </div>
 
