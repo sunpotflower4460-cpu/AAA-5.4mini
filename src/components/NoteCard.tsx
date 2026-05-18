@@ -7,11 +7,11 @@ type NoteCardProps = {
   onSelect: () => void;
 };
 
-const CARD_BODY_PREVIEW_MAX_LENGTH = 96;
+const cardBodyPreviewMaxLength = 96;
 
 const previewText = (body: string): string => {
   const text = body.trim().replace(/\s+/g, ' ');
-  return text ? text.slice(0, CARD_BODY_PREVIEW_MAX_LENGTH) : '　';
+  return text ? text.slice(0, cardBodyPreviewMaxLength) : '　';
 };
 
 export function NoteCard({ note, onSelect }: NoteCardProps) {

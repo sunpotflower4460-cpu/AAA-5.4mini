@@ -9,13 +9,14 @@ type NoteEditorProps = {
   onDelete: () => void;
 };
 
+const getSaveMessages = (status: NoteEditorProps['saveStatus']) => {
+  if (status === 'saving') return { main: copy.saving, secondary: '\u00A0' };
+  if (status === 'saved') return { main: copy.saved, secondary: copy.savedEn };
+  return { main: '\u00A0', secondary: '\u00A0' };
+};
+
 export function NoteEditor({ note, saveStatus, onBack, onChange, onDelete }: NoteEditorProps) {
   const isFavorite = note.isFavorite;
-  const getSaveMessages = (status: NoteEditorProps['saveStatus']) => {
-    if (status === 'saving') return { main: copy.saving, secondary: '\u00A0' };
-    if (status === 'saved') return { main: copy.saved, secondary: copy.savedEn };
-    return { main: '\u00A0', secondary: '\u00A0' };
-  };
   const { main: saveMessage, secondary: saveMessageEn } = getSaveMessages(saveStatus);
 
   return (
