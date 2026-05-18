@@ -37,7 +37,7 @@ export function SearchBar({ value, onChange, placeholder }: SearchBarProps) {
     <label className="block">
       <span className="sr-only">Search</span>
       <div className={containerClassName}>
-        <span aria-hidden="true" className="flex h-8 w-8 items-center justify-center rounded-full border border-[color:var(--color-line)] bg-white/60 text-sm">⌕</span>
+        <span aria-hidden="true" className="text-sm">⌕</span>
         <input
           aria-label={placeholder}
           className={inputClassName}

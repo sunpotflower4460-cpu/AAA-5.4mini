@@ -36,7 +36,7 @@ export function NoteCard({ note, onSelect }: NoteCardProps) {
                 aria-hidden="true"
                 className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-[color:var(--color-gold)]/30 bg-[color:var(--color-gold)]/10 text-[10px] text-[color:var(--color-gold)]"
               >
-                ●
+                ✦
               </span>
             ) : null}
           </div>

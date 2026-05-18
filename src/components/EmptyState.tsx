@@ -14,7 +14,7 @@ export function EmptyState({ title, subtitle, actionLabel, onAction, compact = f
       <div className="relative flex h-28 w-28 items-center justify-center">
         <span className="absolute inset-0 rounded-full border border-[color:var(--color-line)]/70 bg-[radial-gradient(circle,rgba(201,166,70,0.08),transparent_70%)]" />
         <span className="absolute inset-3 rounded-full border border-[color:var(--color-line)]/55" />
-        <span className="absolute inset-7 rounded-full border border-[color:var(--color-line)]/40" />
+        <span className="absolute inset-[21px] rounded-full border border-[color:var(--color-line)]/40" />
         <div className="relative opacity-95">
           <ZanshinMark />
         </div>
