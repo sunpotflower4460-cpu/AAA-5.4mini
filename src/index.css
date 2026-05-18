@@ -62,7 +62,7 @@ button {
 button:focus-visible,
 input:focus-visible,
 textarea:focus-visible {
-  outline: 2px solid color-mix(in srgb, var(--color-gold) 70%, white);
+  outline: 2px solid var(--color-gold);
   outline-offset: 3px;
 }
 

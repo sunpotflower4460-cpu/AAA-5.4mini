@@ -7,9 +7,11 @@ type NoteCardProps = {
   onSelect: () => void;
 };
 
+const PREVIEW_MAX_LENGTH = 96;
+
 const previewText = (body: string): string => {
   const text = body.trim().replace(/\s+/g, ' ');
-  return text ? text.slice(0, 96) : '　';
+  return text ? text.slice(0, PREVIEW_MAX_LENGTH) : '　';
 };
 
 export function NoteCard({ note, onSelect }: NoteCardProps) {
